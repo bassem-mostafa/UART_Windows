@@ -65,10 +65,10 @@
 // #### Private Type(s) ########################################################
 // #############################################################################
 
-typedef struct UART_Instance_Context
+typedef struct UART_InstanceContext
 {
     FILE * file;
-} UART_Instance_Context_t;
+} UART_InstanceContext_t;
 
 // #############################################################################
 // #### Private Method(s) Prototype ############################################
@@ -120,7 +120,7 @@ UART_Status_t UART_Instance_Initialize( UART_Instance_t * UART_Instance )
         if ( UART_Instance->Context == NULL )
         {
             RAM_Status_t RAM_Status = RAM_Status_Error;
-            if ( ( RAM_Status = RAM_Allocate( RAM_1, ( RAM_Reference_t * ) &UART_Instance->Context, UTIL_SizeOf( UART_Instance_Context_t ) ) ) != RAM_Status_Success )
+            if ( ( RAM_Status = RAM_Allocate( RAM_1, ( RAM_Reference_t * ) &UART_Instance->Context, UTIL_SizeOf( UART_InstanceContext_t ) ) ) != RAM_Status_Success )
             {
                 UART_Status = UART_Status_Error;
                 break;
